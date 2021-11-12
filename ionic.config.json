@@ -1,0 +1,7 @@
+{
+  "name": "BBapi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
