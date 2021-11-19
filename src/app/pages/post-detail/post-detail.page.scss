@@ -1,0 +1,14 @@
+ul.app{
+    padding-left: 0.3em;
+    padding-bottom: 0.15em;
+}
+ul.app li{
+    display: inline;
+    font-size: 14px;
+  }
+ul.app li:after { content: ","; }
+ul.app li:last-child:after { content: ""; }
+
+ion-grid{
+    padding: 0;
+}

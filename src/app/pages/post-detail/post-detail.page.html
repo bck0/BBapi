@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Character's details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding" *ngIf='post$ |async; let post'>
+    <ion-card>
+      <img src="{{post[0].img}}" />
+      <ion-card-header>
+        <ion-card-title>{{post[0].name}}</ion-card-title>
+        <ion-card-subtitle>{{post[0].nickname}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <p><b>Status: </b>{{post[0].status}}</p>
+        <p><b>Character's birthday: </b> {{post[0].birthday}}</p>
+        <p><b>Portrayed by:</b> {{post[0].portrayed}}</p>
+        <p><b>Occupations:</b></p>
+        <ul>
+          <li *ngFor="let occ of post[0].occupation">
+            {{occ}}
+          </li>
+        </ul>
+        <div *ngIf = 'cat[0] == "Breaking Bad"'>
+          <p><b>Category:</b> {{cat[0]}}</p>
+          <ion-grid>
+            <ion-row class="ion-align-items-center">
+              <p><b>Season: </b></p>
+              <ul class="app ">
+                <li *ngFor="let app of post[0].appearance">
+                  {{app}}
+                </li>
+              </ul>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div *ngIf = 'cat[0] == "Better Call Saul" || cat[1] == " Better Call Saul"'>
+          <p *ngIf = 'cat[0] == "Better Call Saul"' ><b>Category:</b> {{cat[0]}}</p>
+          <p *ngIf = 'cat[1] == " Better Call Saul"' ><b>Category:</b> {{cat[1]}}</p>
+          <ion-grid>
+            <ion-row class="ion-align-items-center">
+              <p><b>Season: </b></p>
+              <ul class="app ">
+                <li *ngFor="let app of post[0].better_call_saul_appearance">
+                  {{app}}
+                </li>
+              </ul>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
