@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { CardData } from '../models/data.models'
+
 
 @Component({
   selector: 'app-tab2',
@@ -7,8 +9,13 @@ import { DataService } from '../services/data.service';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-  listData = [];
-
+  listData: CardData[];
+  Data: CardData = {
+    name: null,
+    info: ''
+  };
+  name: string;
+  info: string;
   constructor(private dataService: DataService) {
     this.loadData();
   }
@@ -21,7 +28,7 @@ export class Tab2Page {
   }
 
   async addData(){
-    await this.dataService.addData(`Simon ${Math.floor(Math.random() * 100)}`);
+    await this.dataService.addData(this.Data);
     this.loadData();
   }
 
