@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BbService } from '../api/bb.service';
+import { BbService } from '../services/api/bb.service';
 import { Post } from '../models/post.models';
 
 @Component({

@@ -11,7 +11,7 @@ const STORAGE_KEY = 'mylist';
 })
 export class DataService {
   private storageReady = new BehaviorSubject(false);
-  constructor(private storage:Storage ) { 
+  constructor(private storage:Storage) { 
     this.init();
   }
 

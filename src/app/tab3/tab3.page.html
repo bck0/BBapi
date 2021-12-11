@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Create custom card!
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,8 +9,37 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title class="ion-text-wrap" size="large">Create custom card!</ion-title>
     </ion-toolbar>
   </ion-header>
 
+  <!-- <ion-item>
+    <ion-label>Name</ion-label>
+    <ion-input type="text" [(ngModel)]="Data.name"></ion-input>
+  </ion-item> -->
+  <!-- <ion-item>
+    <ion-label>Info</ion-label>
+    <ion-input type="text" [(ngModel)]="Data.info"></ion-input>
+  </ion-item> -->
+  <ion-card>
+    <ion-card-header>
+      <ion-icon class="ion-float-right" name="create-outline" size="small"></ion-icon>
+      <ion-card-title>
+          <ion-input type="text" [(ngModel)]="Data.name" placeholder="Enter Name"></ion-input>
+      </ion-card-title>
+      <ion-card-subtitle><ion-input type="text" [(ngModel)]="Data.nickname" placeholder="Enter nickname"></ion-input></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Birthdate:</ion-label>
+      <ion-datetime style="padding: 1px 0px;" displayFormat="DD/MM/YYYY" [(ngModel)]="Data.birthday" placeholder="Select Date"></ion-datetime>
+    </ion-card-content>
+    <ion-card-content style="border: 2px solid black; border-radius: 10px; margin: 10px;">
+     <!-- <ion-input class="ion-text-wrap" [(ngModel)]="info" placeholder="Enter some text..."></ion-input> -->
+    <ion-textarea type="text" [(ngModel)]="Data.info" placeholder="Type some info..."></ion-textarea>
+    </ion-card-content>
+  </ion-card>  
+    <!-- <ion-button (click)="addData(Data)" color="primary">Primary</ion-button> -->
+    <ion-button style="margin-right: 20px;" class="ion-float-right ion-button icon-only clear" color="success" size="large" (click)="addData(Data)">
+      <ion-icon style="padding: 5px 10px;" name="save-outline" size="large"></ion-icon>
+    </ion-button>
 </ion-content>

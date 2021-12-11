@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Post } from 'src/app/models/post.models'
-import { BbService } from 'src/app/api/bb.service';
+import { BbService } from 'src/app/services/api/bb.service';
 import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 
 @Component({
