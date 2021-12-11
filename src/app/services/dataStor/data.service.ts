@@ -41,4 +41,9 @@ export class DataService {
     storedData.splice(index,1);
     return this.storage.set(STORAGE_KEY,storedData);
   }
+
+  async getItem(index){
+    const storedData = await this.storage.get(STORAGE_KEY) || [];
+    return storedData[index];
+  }
 }

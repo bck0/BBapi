@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>data-detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-icon class="ion-float-right" name="create-outline" size="small"></ion-icon>
+      <ion-card-title>
+        <ion-label>{{data.name}}</ion-label>
+      </ion-card-title>
+      <ion-label>{{data.nickname}}</ion-label>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Birthdate:</ion-label>
+      <ion-label>{{data.birthday}}</ion-label>
+    </ion-card-content>
+    <ion-card-content style="border: 2px solid black; border-radius: 10px; margin: 10px;">
+      <ion-label>{{data.info}}:</ion-label>
+    </ion-card-content>
+  </ion-card>  
+</ion-content>

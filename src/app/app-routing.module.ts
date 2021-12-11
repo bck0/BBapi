@@ -9,7 +9,12 @@ const routes: Routes = [
   {
     path: 'post-detail/:id',
     loadChildren: () => import('./pages/post-detail/post-detail.module').then( m => m.PostDetailPageModule)
+  },
+  {
+    path: 'data-detail/:i',
+    loadChildren: () => import('./pages/data-detail/data-detail.module').then( m => m.DataDetailPageModule)
   }
+
 ];
 @NgModule({
   imports: [
