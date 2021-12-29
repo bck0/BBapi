@@ -3,14 +3,12 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>data-detail</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
+<ion-content *ngIf='!editing'>
+  <!-- <ion-button color="primary" (click)="editing = true">Primary</ion-button> -->
   <ion-card>
     <ion-card-header>
-      <ion-icon class="ion-float-right" name="create-outline" size="small"></ion-icon>
       <ion-card-title>
         <ion-label>{{data.name}}</ion-label>
       </ion-card-title>
@@ -21,7 +19,36 @@
       <ion-label>{{data.birthday}}</ion-label>
     </ion-card-content>
     <ion-card-content style="border: 2px solid black; border-radius: 10px; margin: 10px;">
-      <ion-label>{{data.info}}:</ion-label>
+      <ion-label>{{data.info}}</ion-label>
     </ion-card-content>
   </ion-card>  
+  <ion-button style="margin-right: 20px;" class="ion-float-right ion-button icon-only clear" color="success" size="large" (click)="edit()">
+    <ion-icon style="padding: 5px 10px;" name="create-outline" size="large"></ion-icon>
+  </ion-button>
+</ion-content>
+
+
+<ion-content *ngIf='editing'>
+  <ion-card>
+    <ion-card-header>
+      <ion-icon class="ion-float-right" name="create-outline" size="small"></ion-icon>
+      <ion-card-title>
+          <ion-input  type="text" [(ngModel)]="newData.name" placeholder="Enter Name"></ion-input>
+      </ion-card-title>
+      <ion-card-subtitle><ion-input type="text" [(ngModel)]="newData.nickname" placeholder="Enter nickname"></ion-input></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Birthdate:</ion-label>
+      <ion-datetime style="padding: 1px 0px;" displayFormat="DD/MM/YYYY" [(ngModel)]="newData.birthday" placeholder="Select Date"></ion-datetime>
+    </ion-card-content>
+    <ion-card-content style="border: 2px solid rgb(75, 75, 75); border-radius: 10px; margin: 10px; padding: 2;">
+    <ion-textarea style="width: 100%;" type="text" [(ngModel)]="newData.info" placeholder="Type some info..."></ion-textarea>
+    </ion-card-content>
+  </ion-card>  
+  <ion-button style="margin-right: 20px;" class="ion-float-right ion-button icon-only clear" color="danger" size="large" (click)="editing = false">
+    <ion-icon style="padding: 5px 10px;" name="close-outline" size="large"></ion-icon>
+  </ion-button>
+  <ion-button style="margin-right: 20px;" class="ion-float-right ion-button icon-only clear" color="success" size="large" (click)="update()">
+    <ion-icon style="padding: 5px 10px;" name="save-outline" size="large"></ion-icon>
+  </ion-button>
 </ion-content>

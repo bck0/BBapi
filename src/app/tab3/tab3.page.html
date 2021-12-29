@@ -25,7 +25,7 @@
     <ion-card-header>
       <ion-icon class="ion-float-right" name="create-outline" size="small"></ion-icon>
       <ion-card-title>
-          <ion-input type="text" [(ngModel)]="Data.name" placeholder="Enter Name"></ion-input>
+          <ion-input  type="text" [(ngModel)]="Data.name" placeholder="Enter Name"></ion-input>
       </ion-card-title>
       <ion-card-subtitle><ion-input type="text" [(ngModel)]="Data.nickname" placeholder="Enter nickname"></ion-input></ion-card-subtitle>
     </ion-card-header>
@@ -33,9 +33,9 @@
       <ion-label>Birthdate:</ion-label>
       <ion-datetime style="padding: 1px 0px;" displayFormat="DD/MM/YYYY" [(ngModel)]="Data.birthday" placeholder="Select Date"></ion-datetime>
     </ion-card-content>
-    <ion-card-content style="border: 2px solid black; border-radius: 10px; margin: 10px;">
+    <ion-card-content style="border: 2px solid rgb(75, 75, 75); border-radius: 10px; margin: 10px; padding: 2;">
      <!-- <ion-input class="ion-text-wrap" [(ngModel)]="info" placeholder="Enter some text..."></ion-input> -->
-    <ion-textarea type="text" [(ngModel)]="Data.info" placeholder="Type some info..."></ion-textarea>
+    <ion-textarea style="width: 100%;" type="text" [(ngModel)]="Data.info" placeholder="Type some info..."></ion-textarea>
     </ion-card-content>
   </ion-card>  
     <!-- <ion-button (click)="addData(Data)" color="primary">Primary</ion-button> -->

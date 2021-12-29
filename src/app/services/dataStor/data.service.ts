@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Storage } from '@ionic/storage';
+import { Storage } from '@ionic/storage-angular';
 import * as cordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
 import { BehaviorSubject, from, of} from 'rxjs';
 import {filter, switchMap} from "rxjs/operators";
@@ -45,5 +45,12 @@ export class DataService {
   async getItem(index){
     const storedData = await this.storage.get(STORAGE_KEY) || [];
     return storedData[index];
+  }
+
+  async updateItem(item,index){
+    const storedData = await this.storage.get(STORAGE_KEY) || [];
+    storedData[index] = item;
+    return this.storage.set(STORAGE_KEY, storedData);
+
   }
 }
