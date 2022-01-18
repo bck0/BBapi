@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DataService } from '../services/dataStor/data.service';
 import { CardData } from '../models/data.models'
 import { EventsService } from '../services/events/events.service';
+import { LoadingController, Platform} from '@ionic/angular';
 
 @Component({
   selector: 'app-tab3',
@@ -15,12 +16,19 @@ export class Tab3Page {
     birthday: null,
     info: ''
   };
-  constructor(private dataService: DataService, private eventsService: EventsService) {
+  constructor(private dataService: DataService, private eventsService: EventsService, private loadingCtrl: LoadingController) {
 
   }
 
 
   async addData(){
+    const loading = await this.loadingCtrl.create({
+      message: 'Saved!',
+      duration: 200,
+      spinner: null
+    });
+    await loading.present();
+
     if(this.Data.birthday != null){
       this.Data.birthday = this.Data.birthday.split('T')[0];
     }

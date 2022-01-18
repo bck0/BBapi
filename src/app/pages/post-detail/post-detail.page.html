@@ -38,20 +38,22 @@
             </ion-row>
           </ion-grid>
         </div>
-        <div *ngIf = 'cat[0] == "Better Call Saul" || cat[1] == " Better Call Saul"'>
-          <p *ngIf = 'cat[0] == "Better Call Saul"' ><b>Category:</b> {{cat[0]}}</p>
-          <p *ngIf = 'cat[1] == " Better Call Saul"' ><b>Category:</b> {{cat[1]}}</p>
-          <ion-grid>
-            <ion-row class="ion-align-items-center">
-              <p><b>Season: </b></p>
-              <ul class="app ">
-                <li *ngFor="let app of post[0].better_call_saul_appearance">
-                  {{app}}
-                </li>
-              </ul>
-            </ion-row>
-          </ion-grid>
-        </div>
+        <div *ngIf = "cat !== undefined && cat !== null">
+          <div *ngIf = 'cat[0] == "Better Call Saul" || cat[1] == " Better Call Saul"'>
+            <p *ngIf = 'cat[0] == "Better Call Saul"' ><b>Category:</b> {{cat[0]}}</p>
+            <p *ngIf = 'cat[1] == " Better Call Saul"' ><b>Category:</b> {{cat[1]}}</p>
+            <ion-grid>
+              <ion-row class="ion-align-items-center">
+                <p><b>Season: </b></p>
+                <ul class="app ">
+                  <li *ngFor="let app of post[0].better_call_saul_appearance">
+                    {{app}}
+                  </li>
+                </ul>
+              </ion-row>
+            </ion-grid>
+          </div>
+      </div>
       </ion-card-content>
     </ion-card>
   </div>

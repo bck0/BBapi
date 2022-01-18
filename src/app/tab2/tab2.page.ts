@@ -25,8 +25,8 @@ export class Tab2Page {
 
   ngOnInit(){
     this.eventsService.on("loader", ()=>{
-      console.log("reaguje");
       this.loadData();
+      console.log("reaguje");
     });
   }
 
@@ -34,6 +34,7 @@ export class Tab2Page {
     //this.listData = await this.dataService.getData();
     this.dataService.getData().subscribe(res => {
     this.listData = res;
+    console.log("loading done");
     });
   }
 

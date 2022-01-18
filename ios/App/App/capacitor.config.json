@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "BBapi",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

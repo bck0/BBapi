@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CardData } from 'src/app/models/data.models'
 import { DataService } from 'src/app/services/dataStor/data.service'
-
+import { EventsService } from 'src/app/services/events/events.service';
 
 @Component({
   selector: 'app-data-detail',
@@ -25,7 +25,7 @@ export class DataDetailPage implements OnInit {
     info : ''
   }
   index : string;
-  constructor(private dataService: DataService, private route: ActivatedRoute) { 
+  constructor(private dataService: DataService, private route: ActivatedRoute, private eventsService: EventsService) { 
     const id = this.route.snapshot.paramMap.get("i");
     this.index = id;
     this.dataService.getItem(id).then( res => this.data = res);
@@ -39,11 +39,14 @@ export class DataDetailPage implements OnInit {
     this.newData.info = this.data.info;
   }
 
-  update(){
+  async update(){
     this.dataService.updateItem(this.newData,this.index);
     this.editing = false;
-    this.newData.birthday = this.newData.birthday.split('T')[0];
+    if(this.newData.birthday !== null){
+      this.newData.birthday = this.newData.birthday.split('T')[0];
+    }
     this.data = this.newData;
+    await this.eventsService.broadcast("loader");
     console.log(this.newData);
   }
 

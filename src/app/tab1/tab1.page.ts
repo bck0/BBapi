@@ -10,17 +10,12 @@ import { LoadingController, Platform} from '@ionic/angular';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  posts:Observable<Post[]>;
+  // posts:Observable<Post[]>;
+  posts:Post[];
   
   
   constructor(private bbService: BbService, private loadingCtrl: LoadingController) {
-   //this.posts = this.bbService.getCharacter();
-    // console.log(this.bbService.getCharacters().subscribe(data => {
-    //    this.posts = data;
-    //     console.log(this.posts[0].name)
-    //  }));
-    //this.bbService.getCharacters().subscribe(data => {this.posts = data;});
-    this.loading();
+  this.loading();
   }
 
   async loading(){
@@ -29,9 +24,19 @@ export class Tab1Page {
     });
     await loading.present();
 
-    this.posts = await this.bbService.getCharacters();
+    this.bbService.getCharacters().subscribe({
+      next: data => {
+        this.posts = data;
+     },
+     error: data => {
+      console.log('err')
+     },
+     complete: () => {
+        console.log('complete')
+        loading.dismiss();
+     }
+    });
 
-    loading.dismiss();
   }
 
 }
