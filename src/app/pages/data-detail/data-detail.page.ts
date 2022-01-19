@@ -40,7 +40,7 @@ export class DataDetailPage implements OnInit {
   }
 
   async update(){
-    this.dataService.updateItem(this.newData,this.index);
+    await this.dataService.updateItem(this.newData,this.index);
     this.editing = false;
     if(this.newData.birthday !== null){
       this.newData.birthday = this.newData.birthday.split('T')[0];

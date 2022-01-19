@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { BbService } from '../services/api/bb.service';
 import { Post } from '../models/post.models';
 import { LoadingController, Platform} from '@ionic/angular';
+import { SplashScreen } from '@capacitor/splash-screen';
 
 @Component({
   selector: 'app-tab1',
@@ -34,6 +35,7 @@ export class Tab1Page {
      complete: () => {
         console.log('complete')
         loading.dismiss();
+        SplashScreen.hide();
      }
     });
 

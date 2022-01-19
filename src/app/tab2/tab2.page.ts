@@ -27,6 +27,7 @@ export class Tab2Page {
     this.eventsService.on("loader", ()=>{
       this.loadData();
       console.log("reaguje");
+      //document.location.href = "/tabs/tab2";
     });
   }
 
